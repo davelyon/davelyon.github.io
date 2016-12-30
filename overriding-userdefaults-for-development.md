@@ -5,14 +5,14 @@ When you need a flag, or some lite configuration data, it's easy to reach for Us
 Here's a pretty common scenario you've probably run in to before: You want to introduce a new feature to users, but you're a thoughtful developer and choose to alert your users just once. There's nothing more to it other than a simple check for existence, so you add a key to UserDefaults and call it a day.
 
 ```swift
-  fileprivate let widgetEnablerKey = "com.yourapp.widgetEnablerShown"
+fileprivate let widgetEnablerKey = "com.yourapp.widgetEnablerShown"
 
-  let hasSeenFeatureAlert = UserDefaults.standard.bool(for: widgetEnablerKey)
-  if hasSeenFeatureAlert != true { showFeatureAlert() }
-  func showFeatureAlert() {
-    // Alert: "New Feature Available"
-    UserDefaults.standard.setValue(true, for: widgetEnablerKey)
-  }
+let hasSeenFeatureAlert = UserDefaults.standard.bool(for: widgetEnablerKey)
+if hasSeenFeatureAlert != true { showFeatureAlert() }
+func showFeatureAlert() {
+  // Alert: "New Feature Available"
+  UserDefaults.standard.setValue(true, for: widgetEnablerKey)
+}
 ```
 
 Now you get a new request to add some animation to the presentation of your new feature, and so you'll want to be able to demo and test that without too much pain. Now that handy persistence you get from UserDefaults is a bit of an annoyance. Should you add a #debug flag that automatically deletes that key while you test and hope you remember not to check it in? How about a temporary override that won't get picked up by version control?
@@ -28,8 +28,8 @@ There are a total of 5 domains that are potentially checked for a default, and y
 The Application domain is the default domain where data is read from and persisted to if you're using code that looks like this:
 
 ```swift
-  UserDefaults.standard.bool(for: "myFlag")
-  UserDefaults.standard.set(true, for: "myFlag")
+UserDefaults.standard.bool(for: "myFlag")
+UserDefaults.standard.set(true, for: "myFlag")
 ```
 
 ### The Registration Domain -- If you need a default for your default, this is where it goes
@@ -37,19 +37,20 @@ The Application domain is the default domain where data is read from and persist
 Let's say we wanted to shake things up a bit, and use a flag that indicates that the new feature alert _should_ be shown. We can use the registration domain to set a last-resort fallback value for the key we want to access that will be ignored once we've explicitly set a value in the Application domain. 
 
 ```swift
-  fileprivate let widgetEnablerKey = "com.yourapp.showWidgetEnabler"
+fileprivate let widgetEnablerKey = "com.yourapp.showWidgetEnabler"
 
-  // In `application(_ application: UIApplication, 
-didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil)`
+// In `application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil)`
   
-  UserDefaults.standard.register([ widgetEnablerKey: true ])
+UserDefaults.standard.register([ widgetEnablerKey: true ])
 
-  let shouldShowFeatureAlert = UserDefaults.standard.bool(for: widgetEnablerKey)
-  if shouldShowFeatureAlert { showFeatureAlert() }
-  func showFeatureAlert() {
-    // Alert: "New Feature Available"
-    UserDefaults.standard.setValue(false, for: widgetEnablerKey)
-  }
+let shouldShowFeatureAlert = UserDefaults.standard.bool(for: widgetEnablerKey)
+
+if shouldShowFeatureAlert { showFeatureAlert() }
+
+func showFeatureAlert() {
+  // Alert: "New Feature Available"
+  UserDefaults.standard.setValue(false, for: widgetEnablerKey)
+}
 ```
 
 Using `register(defaults registrationDictionary: [String : Any])` will load values in to the registration domain, and if a value is not found in the application domain, the value from the registration domain will be returned instead -- so consider them UserDefault defaults.
@@ -65,14 +66,14 @@ The argument domain is a special one: it loads up values directly from the appli
 The argument domain is the first place that is checked when requesting a value from user defaults -- this makes it particularly suited for our use case since it will override values already stored in the Application domain. To override a specific user default value, you specify it as follows:
 
 ```sh
-  -com.yourapp.showWidgetEnabler YES
+-com.yourapp.showWidgetEnabler YES
 ```
 
 You can check your work by specifically looking at the Argument domain:
 
 ```swift
-  let argumentOverrides = UserDefaults.standard.volatileDomain(forName: UserDefaults.argumentDomain) // [ String: Any]
-  dump(argumentOverrides)
+let argumentOverrides = UserDefaults.standard.volatileDomain(forName: UserDefaults.argumentDomain) // [ String: Any]
+dump(argumentOverrides)
 ```
 
 Now that the flag is forced to be true, you can revisit your view over and over without needing to hit the debugger or relaunch the application just to reset the value.
