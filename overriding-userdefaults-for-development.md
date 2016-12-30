@@ -23,20 +23,20 @@ If you've ever taken a deep dive in to the details of how UserDefaults works, or
 
 There are a total of 5 domains that are potentially checked for a default, and you can [dig in to all of them in the documentation](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html#//apple_ref/doc/uid/10000059i-CH2-SW1) but for now we're going to focus on the three most useful for iOS developers:
 
-1. The Application Domain -- Where most of your defaults probably live right now
+### The Application Domain -- Where most of your defaults probably live right now
 
-  The Application domain is the default domain where data is read from and persisted to if you're using code that looks like this:
+The Application domain is the default domain where data is read from and persisted to if you're using code that looks like this:
 
-  ```swift
+```swift
   UserDefaults.standard.bool(for: "myFlag")
   UserDefaults.standard.set(true, for: "myFlag")
-  ```
+```
 
-2. The Registration Domain -- If you need a default for your default, this is where it goes
+### The Registration Domain -- If you need a default for your default, this is where it goes
 
-  Let's say we wanted to shake things up a bit, and use a flag that indicates that the new feature alert _should_ be shown. We can use the registration domain to set a last-resort fallback value for the key we want to access that will be ignored once we've explicitly set a value in the Application domain. 
+Let's say we wanted to shake things up a bit, and use a flag that indicates that the new feature alert _should_ be shown. We can use the registration domain to set a last-resort fallback value for the key we want to access that will be ignored once we've explicitly set a value in the Application domain. 
 
-  ```swift
+```swift
   fileprivate let widgetEnablerKey = "com.yourapp.showWidgetEnabler"
 
   // In `application(_ application: UIApplication, 
@@ -50,15 +50,15 @@ didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : An
     // Alert: "New Feature Available"
     UserDefaults.standard.setValue(false, for: widgetEnablerKey)
   }
-  ```
+```
 
-  Using `register(defaults registrationDictionary: [String : Any])` will load values in to the registration domain, and if a value is not found in the application domain, the value from the registration domain will be returned instead -- so consider them UserDefault defaults.
+Using `register(defaults registrationDictionary: [String : Any])` will load values in to the registration domain, and if a value is not found in the application domain, the value from the registration domain will be returned instead -- so consider them UserDefault defaults.
 
-  One important caveat is that the Registration domain is "volatile" -- this means that you'll need to register your defaults on each app launch since the registration domain is not persisted and thus, a clean slate each time you re-launch the app.
+One important caveat is that the Registration domain is "volatile" -- this means that you'll need to register your defaults on each app launch since the registration domain is not persisted and thus, a clean slate each time you re-launch the app.
 
-3. The Argument Domain - Where you set a flag that you don't want to change (sort of)
+### The Argument Domain - Where you set a flag that you don't want to change (sort of)
 
-  The argument domain is a special one: it loads up values directly from the application launch options, or as they're called in your Xcode schemes -- "Arguments Passed On Launch".
+The argument domain is a special one: it loads up values directly from the application launch options, or as they're called in your Xcode schemes -- "Arguments Passed On Launch".
 
 ![Image of Arguments Passed On Launch in Xcode Scheme Editor](images/arguments-on-launch.png)
 
