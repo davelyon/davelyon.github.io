@@ -60,7 +60,7 @@ didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : An
 
   The argument domain is a special one: it loads up values directly from the application launch options, or as they're called in your Xcode schemes -- "Arguments Passed On Launch".
 
-![Image of Arguments Passed On Launch in Xcode Scheme Editor](images/arguments-passed-on-launch.png)
+![Image of Arguments Passed On Launch in Xcode Scheme Editor](images/arguments-on-launch.png)
 
 The argument domain is the first place that is checked when requesting a value from user defaults -- this makes it particularly suited for our use case since it will override values already stored in the Application domain. To override a specific user default value, you specify it as follows:
 
