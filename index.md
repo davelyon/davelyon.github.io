@@ -1,6 +1,6 @@
 # Who
 
-I'm Dave Lyon, a software engineer at Recurly in San Francisco. I love to write clean, simple and well tested code, and wrangle immense complexity in to clean, simple interfaces. And of course, shipping.
+I'm Dave Lyon, a freelance software developer.
 
 # Links
 
