@@ -1,3 +1,7 @@
+---
+title: Overriding UserDefaults for development
+---
+
 ## Overriding UserDefaults for development
 
 When you need a flag, or some lite configuration data, it's easy to reach for UserDefaults. It's usually more than enough to deal with simple flags for requesting push notification, new user setup, data migrations and so on. UserDefaults are great -- until it comes time to test out whatever is behind that flag.
