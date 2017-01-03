@@ -1,7 +1,7 @@
 ---
 title: Overriding UserDefaults for development
 description: A faster way to update your UserDefaults when developing new features.
-image: davelyon.net/images/arguments-on-launch.png
+image: images/arguments-on-launch.png
 ---
 
 ## Overriding UserDefaults for development
