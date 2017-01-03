@@ -2,6 +2,16 @@
 
 I'm Dave Lyon, a freelance software developer.
 
+# Recent Posts
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
 # Links
 
 1. [My Github account](https://github.com/davelyon) — My open source profile
