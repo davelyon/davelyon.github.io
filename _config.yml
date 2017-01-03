@@ -7,6 +7,7 @@ description: |
 google_analytics: UA-89703059-1
 show_downloads: false
 theme: jekyll-theme-minimal
+permalink: /:categories/:year/:month/:day/:title
 
 gems:
   - jekyll-mentions
