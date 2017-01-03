@@ -87,3 +87,5 @@ Now that the flag is forced to be true, you can revisit your view over and over 
 Of course, you'll have this value in your Scheme which means it'll show up in version control -- but there's a pretty simple fix for that: Just duplicate your scheme and don't mark it as shared (you do have a good `.gitignore` that doesn't track user schemes, right? ;)). 
 
 Wouldn't it be nice if there was some way to have that available somewhere that doesn't require a separate scheme? Well, it can definitely be done -- and we'll cover _that_ in part 2 :)
+
+Comments? Questions? Ask me on [Twitter](https://twitter.com/daveisonthego) or via [Github Issues](https://github.com/davelyon/davelyon.github.io/issues/1)
