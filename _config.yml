@@ -1,4 +1,4 @@
-title: Dave Lyon
+title: Dave Lyon - Freelance iOS Developer
 description: |
   Dave is a freelance software developer focusing on iOS development in Swift and Objective-C.
   
@@ -11,3 +11,11 @@ theme: jekyll-theme-minimal
 gems:
   - jekyll-mentions
   - jekyll-sitemap
+  - jekyll-seo
+
+twitter:
+  username: daveisonthego
+
+author:
+  twitter: daveisonthego
+
