@@ -11,7 +11,7 @@ theme: jekyll-theme-minimal
 gems:
   - jekyll-mentions
   - jekyll-sitemap
-  - jekyll-seo
+  - jekyll-seo-tag
 
 twitter:
   username: daveisonthego
