@@ -7,7 +7,7 @@ description: A few helpful tips on dealing with less-than-ideal JSON responses w
 
 If you've had a chance to try out the new `Codable` protocols recently made available in Xcode 9, you may have noticed that they're not exactly flexible in the way your previous JSON library might have been. The new `JSONDecoder` that is provided with the Swift standard library is a bit of a control freak, but with a little bit of protocol extension we can fix that.
 
-Available now for Swift 3 and 4 (in Xcode 9), the `Codable` API might at first seem intimidating. What exactly is a `KeyedDecodingContainer` and how to I turn my raw JSON data in to one? I won't be spending too much time on those details as they've been well covered by others, but I do want to set up a few things concepts before we use them.
+Available now for Swift 3 and 4 (in Xcode 9), the `Codable` API might at first seem intimidating. What exactly is a `KeyedDecodingContainer` and how to I turn my raw JSON data in to one? I won't be spending too much time on those details as they've been well covered by others, but I do want to set up a few concepts before we use them.
 
 To begin, we'll focus on the `Decodable` part of the API since that's where we need to be more flexible in dealing with what we get from a server that may well be out of our control. When we want to decode our payload, we'll create an instance of a `JSONDecoder`object and ask it to decode our raw JSON data in to a generic type:
 
