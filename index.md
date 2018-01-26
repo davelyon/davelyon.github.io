@@ -1,6 +1,6 @@
 # Who
 
-I'm Dave Lyon, a freelance software developer.
+I'm Dave Lyon, a mobile app consultant.
 
 # Recent Posts
 
