@@ -1,6 +1,6 @@
 # Who
 
-I'm Dave Lyon, a mobile app consultant.
+I'm Dave Lyon, a mobile app consultant and founder of [Traboule Software](https://traboulesoftware.com/?utm_source=personal-site&utm_medium=web).
 
 # Recent Posts
 
@@ -14,5 +14,6 @@ I'm Dave Lyon, a mobile app consultant.
 
 # Links
 
-1. [My Github account](https://github.com/davelyon) — My open source profile
-2. [My LinkedIn Profile](http://linkedin.com/in/daveisonthego) — See my work history
+1. [Traboule Software]([My Github account](https://github.com/davelyon) — My company, a software development agency
+2. [My Github account](https://github.com/davelyon) — My open source profile 
+3. [My LinkedIn Profile](http://linkedin.com/in/daveisonthego) — See my work history
