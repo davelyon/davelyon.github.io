@@ -14,6 +14,6 @@ I'm Dave Lyon, a mobile app consultant and founder of [Traboule Software](https:
 
 # Links
 
-1. [Traboule Software]([My Github account](https://github.com/davelyon) — My company, a software development agency
+1. [Traboule Software](https://traboulesoftware.com/?utm_source=personal-site&utm_medium=web) — My company, a software development agency
 2. [My Github account](https://github.com/davelyon) — My open source profile 
 3. [My LinkedIn Profile](http://linkedin.com/in/daveisonthego) — See my work history
